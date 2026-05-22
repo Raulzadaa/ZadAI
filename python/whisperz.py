@@ -3,6 +3,8 @@ import queue
 import sounddevice as sd
 import numpy as np
 
+import llmz
+
 class Whisperz:
     def __init__(self):
         self.samplerate = 16000
@@ -18,11 +20,13 @@ class Whisperz:
         self.audio_queue = queue.Queue()
         self.audio_buffer = []
 
-        self.model_size = "large-v3"
+        self.model_size = "small.en"
         self.device = "cuda"
         self.comptute_type = "float16"
 
         self.model = WhisperModel(self.model_size, device=self.device, compute_type=self.comptute_type)
+
+        self.llmz = llmz.Llmz()
 
     def audio_callback(self, indata, frames, time, status):
         if status:
@@ -57,7 +61,7 @@ class Whisperz:
                     beam_size=1
                 )
 
-                for segment in segments:
-                    print(f"{segment.text}")
-                    if "stop".upper() in segment.text.upper():
-                        print("Estopou")
+                # for segment in segments:
+                    # self.llmz.phrase.append(segment)
+                    # if len(self.llmz.phrase) > 7:
+                    #     self.llmz.prompt(" ".join(phrase))
