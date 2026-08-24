@@ -1,5 +1,6 @@
 from src.audio import WakeWordDetector , WhisperSTT , PiperTTS, Recorder
 from src.brain import LLMModule
+from config.config import ONLY_TEXT
 import threading
 
 class ZadAI:
@@ -13,12 +14,16 @@ class ZadAI:
 
     def start(self):
         while True:
-            self.recorder.create_wav_file()
-            prompt = self.ears.transcriber()
-            # prompt = input("Write: ")
+            if ONLY_TEXT:
+                prompt = input("Write: ")
+            else:
+                self.recorder.create_wav_file()
+                prompt = self.ears.transcriber()
+            
             text = self.brain.prompt(prompt)
             print(text)
-            self.mouth.speak(text)
+            if not ONLY_TEXT:
+                self.mouth.speak(text)
 
 zadai = ZadAI()
 

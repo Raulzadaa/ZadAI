@@ -9,7 +9,7 @@ class Recorder:
             self.samplerate = 16000
             self.wav_file = AUDIO_FILE
 
-            self.silence_threshold = 0.1
+            self.silence_threshold = 0.7
             self.silence_timeout = 5
 
             self.record_audio = []

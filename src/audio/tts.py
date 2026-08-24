@@ -1,12 +1,15 @@
 import pyaudio
 from piper import PiperVoice
-from config.config import TTS_DIR 
+from config.config import TTS_DIR
 
 class PiperTTS():
     def __init__(self):
         
+        # if ()
         # self.model_path = f"{TTS_DIR}/en_US-kristin-medium.onnx"
+
         self.model_path = f"{TTS_DIR}/pt_BR-cadu-medium.onnx"
+
         self.voice = PiperVoice.load(self.model_path)
 
         self.pyAudio = pyaudio.PyAudio()

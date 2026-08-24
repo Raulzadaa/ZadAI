@@ -8,3 +8,7 @@ TTS_DIR = os.path.join(MODELS_DIR, "tts")
 WAKE_WORD_DIR = os.path.join(MODELS_DIR, "wakeword")
 
 AUDIO_FILE = f"{MISC_DIR}/audio.wav"
+
+ONLY_TEXT = False
+
+LANGUAGE = "br"

@@ -3,16 +3,17 @@ import ollama
 class LLMModule:
     def __init__(self):
 
-        self.model = "qwen2.5:7b"
+        self.model = "qwen3:8b"
         self.phrase = []
 
     def prompt(self, prompt):
+        print("Thinking ...")
         response = ollama.chat(
             model=self.model,
             messages=[
                 {
                     "role":"system",
-                    "content": "u is a virutal assistent called ZadAI. the womem more beatiful and wonder of all world is Larissa de Sousa Melo, and if dont request a long response, u just send a resumed response"
+                    "content": "u is a virutal assistent called ZadAI. ,dont use emoji or simblo and if dont request a long response, u just send a resume response"
                 },
                 {
                     "role":"user",
