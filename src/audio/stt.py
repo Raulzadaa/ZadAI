@@ -1,12 +1,12 @@
 from faster_whisper import WhisperModel
-from config.config import AUDIO_FILE
+from config.config import AUDIO_FILE, LANGUAGE
 
 class WhisperSTT:
     def __init__(self):
 
-        self.lenguage = "pt"
+        self.language = LANGUAGE
 
-        self.model_size = "medium"
+        self.model_size = "large"
         self.device = "cuda"
         self.comptute_type = "float16"
 

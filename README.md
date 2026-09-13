@@ -1,6 +1,6 @@
 # ZadAI
 
-### Project Overview
+## Project Overview
 
 the project consists of the development a IA assistant totally local, able to voice conversation in real time, understand natural language, access memory persistence storage in a vault of Obsidian and execute task in operational system.
 
@@ -19,3 +19,4 @@ the main object its crate a system like a JARVIS, independent cloud services.
 * Modular and expandable architecture
 * Low VRAM consumption
 * Compatibility with mid-range hardware
+
