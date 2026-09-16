@@ -1,5 +1,5 @@
 from faster_whisper import WhisperModel
-from config.config import AUDIO_FILE, LANGUAGE
+from backend.config.config import AUDIO_FILE, LANGUAGE
 
 class WhisperSTT:
     def __init__(self):

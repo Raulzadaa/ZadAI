@@ -4,6 +4,10 @@ from pathlib import Path
 
 def create_file(path_dir: str, file_name: str, content: str, obsidian: bool = True) -> str:
 
+    print("-"*40)
+    print(f"path: {path_dir}, name: {file_name}")
+    print("-"*40)
+
     if obsidian:
         # path_dir = OBSIDIAN_PATH
         path_dir = ("/home/raulzada/Obsidian/Zada/")

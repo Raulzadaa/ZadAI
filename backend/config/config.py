@@ -9,7 +9,7 @@ WAKE_WORD_DIR = os.path.join(MODELS_DIR, "wakeword")
 
 AUDIO_FILE = f"{MISC_DIR}/audio.wav"
 
-ONLY_TEXT = False
+ONLY_TEXT = True
 
 LANGUAGE = "br"
 
@@ -33,7 +33,7 @@ RULES:
 {
   "tool_use" : "create_file" | ""
   "language": "ISO 639-1 code",
-  "category": "coder" | "search" | "general",
+  "category": "coder" | "general",
   "prompt": "string starting with the language instruction, followed by the optimized prompt in English"
 }
 
@@ -46,11 +46,11 @@ If coder:
 - If critical context is missing, assume the most common one and state that assumption inside the prompt.
 - Standard use python 3.13+.
 
-If search:
-- Rephrase as an objective, verifiable question.
-- Include time markers when relevant (e.g., "latest information", "2026 data").
-- Request sources/citations when applicable.
-- Eliminate ambiguity about exactly what needs to be searched.
+# If search:
+# - Rephrase as an objective, verifiable question.
+# - Include time markers when relevant (e.g., "latest information", "2026 data").
+# - Request sources/citations when applicable.
+# - Eliminate ambiguity about exactly what needs to be searched.
 
 If general:
 - Clarify the desired tone (formal, casual, technical) if inferable.

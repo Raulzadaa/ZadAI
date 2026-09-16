@@ -1,8 +1,8 @@
-from src.audio import WakeWordDetector , WhisperSTT , PiperTTS, Recorder
+from backend.src.audio import WakeWordDetector , WhisperSTT , PiperTTS, Recorder
+from backend.src.brain import LLMModule
+from backend.config.config import ONLY_TEXT
 
-from src.brain import LLMModule
-from config.config import ONLY_TEXT
-import threading
+# import threading
 
 class ZadAI:
     def __init__(self):

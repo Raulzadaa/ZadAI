@@ -1,6 +1,6 @@
 import pyaudio
 from piper import PiperVoice
-from config.config import TTS_DIR, LANGUAGE
+from backend.config.config import TTS_DIR, LANGUAGE
 
 class PiperTTS():
     def __init__(self):

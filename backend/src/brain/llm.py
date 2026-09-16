@@ -1,17 +1,17 @@
 import ollama
 import json
 
-from config.config import IA_CONTENT
-from src.tasks.actions import create_file
-from src.tasks.manager import tools
+from backend.config.config import IA_CONTENT
+from backend.src.tasks.actions import create_file
+from backend.src.tasks.manager import tools
 
 class LLMModule:
     def __init__(self):
 
         self.models = {
             "model_general" : "qwen3:8b",
-            "model_coder" : "qwen2.5-coder:3b",
-            "model_search" : "gemma2:2b"
+            "model_coder" : "qwen2.5-coder:3b"
+            # ,"model_search" : "gemma2:2b"
         }
     
         self.model_orchestrator = "granite4.2:3b"
@@ -33,6 +33,8 @@ class LLMModule:
             ],
             think=False
         )
+
+        print(response["message"]["content"])
 
         nosj = json.loads(response["message"]["content"])
 

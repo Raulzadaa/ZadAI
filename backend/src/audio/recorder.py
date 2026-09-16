@@ -2,7 +2,7 @@ import sounddevice as sd
 import numpy as np
 from scipy.io import wavfile
 
-from config.config import AUDIO_FILE
+from backend.config.config import AUDIO_FILE
 
 class Recorder:
     def __init__(self):
