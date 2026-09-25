@@ -3,28 +3,35 @@ tools = [
         "type": "function",
         "function": {
             "name": "create_file",
-            "description": "Cria ou adiciona conteúdo a um arquivo local. Use sempre que o usuário pedir para anotar, salvar, criar uma nota ou escrever em um arquivo.",
+            "description": (
+                "Cria ou sobrescreve um arquivo local com o conteúdo fornecido. "
+                "Use SEMPRE que o resultado final da tarefa for um arquivo — código-fonte "
+                "(ex: .py, .js), anotações, notas do Obsidian, ou qualquer texto que o usuário "
+                "pediu para salvar, escrever ou gerar como arquivo. Nunca responda apenas com "
+                "o conteúdo em texto puro quando um caminho de arquivo for esperado — sempre "
+                "chame esta função para efetivamente gravar o conteúdo em disco."
+            ),
             "parameters": {
                 "type": "object",
                 "properties": {
                     "path_dir": {
                         "type": "string",
-                        "description": "O diretório onde o arquivo será salvo (pode ser vazio se obsidian for True)."
+                        "description": "O diretório onde o arquivo será salvo. Vazio ('') apenas se obsidian for True."
                     },
                     "file_name": {
                         "type": "string",
-                        "description": "O nome do arquivo com extensão (ex: 'diario.md', 'tarefas.txt')."
+                        "description": "O nome do arquivo com extensão (ex: 'app.py', 'diario.md')."
                     },
                     "content": {
                         "type": "string",
-                        "description": "O texto exato que deve ser escrito dentro do arquivo."
+                        "description": "O conteúdo completo e exato a ser escrito no arquivo."
                     },
                     "obsidian": {
                         "type": "boolean",
-                        "description": "Define se o arquivo deve ir para o cofre do Obsidian. Padrão é True."
+                        "description": "True para salvar no cofre do Obsidian. Padrão: False."
                     }
                 },
-                "required": ["file_name", "content"], # Apenas os essenciais, já que path e obsidian têm regras/valores padrão
+                "required": ["file_name", "content"],
             }
         }
     }
