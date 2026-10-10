@@ -1,0 +1,14 @@
+{
+  "name": "zadai-frontend",
+  "private": true,
+  "scripts": {
+    "css:dev": "tailwindcss -i frontend/src/input.css -o frontend/static/css/main.css --watch",
+    "css:build": "tailwindcss -i frontend/src/input.css -o frontend/static/css/main.css --minify",
+    "fonts": "mkdir -p frontend/static/fonts && cp node_modules/@fontsource-variable/inter/files/inter-latin-wght-normal.woff2 frontend/static/fonts/"
+  },
+  "devDependencies": {
+    "@fontsource-variable/inter": "^5.1.0",
+    "@tailwindcss/cli": "^4.0.0",
+    "tailwindcss": "^4.0.0"
+  }
+}

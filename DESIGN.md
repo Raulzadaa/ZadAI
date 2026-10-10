@@ -1,9 +1,11 @@
-# Linear — Style Reference
-> midnight precision instrument
+# ZadAI — Style Reference
+> warm black + gold precision instrument
+
+**Adaptation:** base derived from the Linear style reference, recolored to the ZadAI brand: warm blacks and a single gold accent (#e8a149, from the logo ring). The logo (ring + star, silver "Zad" + gold "AI") lives in `frontend/static/img`.
 
 **Theme:** dark
 
-Linear's design system is a midnight command center built on near-black surfaces (#08090a) with paper-white type and one electric acid-lime accent (#e4f222) that functions as a functional flashlight — small, high-contrast, and used sparingly to signal action. The interface treats darkness as a substrate rather than a theme: text is crisp white at tight tracking (-0.022em), weights sit in a low 400–510 band rather than bold, and borders are hairline-thin (0.5px) to let geometry do the work that shadows usually would. Components feel precision-machined — 6px and 12px radii, compact 8–12px paddings, and almost no decorative ornament — letting the product UI (issue cards, kanban boards, AI agent panels) be the only visual texture in an otherwise quiet system.
+Linear's design system is a midnight command center built on near-black surfaces (#050505) with paper-white type and one electric gold accent (#e8a149) that functions as a functional flashlight — small, high-contrast, and used sparingly to signal action. The interface treats darkness as a substrate rather than a theme: text is crisp white at tight tracking (-0.022em), weights sit in a low 400–510 band rather than bold, and borders are hairline-thin (0.5px) to let geometry do the work that shadows usually would. Components feel precision-machined — 6px and 12px radii, compact 8–12px paddings, and almost no decorative ornament — letting the product UI (issue cards, kanban boards, AI agent panels) be the only visual texture in an otherwise quiet system.
 
 
 
@@ -11,17 +13,19 @@ Linear's design system is a midnight command center built on near-black surfaces
 
 | Name | Value | Token | Role |
 |------|-------|-------|------|
-| Void | `#08090a` | `--color-void` | Page canvas, full-bleed backgrounds — the default everything sits on |
-| Carbon | `#0f1011` | `--color-carbon` | Card surfaces, nav bars — one step above canvas for contained content |
-| Obsidian | `#161718` | `--color-obsidian` | Elevated surfaces, deeper card panels |
-| Graphite | `#23252a` | `--color-graphite` | Subtle borders, dividers, ghost button outlines — low-contrast structural edges |
-| Smoke | `#383b3f` | `--color-smoke` | Hairline borders at higher contrast than graphite — section separators |
-| Ash | `#62666d` | `--color-ash` | Muted body text, inactive icons, secondary metadata |
-| Fog | `#8a8f98` | `--color-fog` | Tertiary text, placeholder copy, icon fills |
-| Mist | `#d0d6e0` | `--color-mist` | Secondary headings, button text on dark surfaces |
-| Bone | `#e5e5e6` | `--color-bone` | Near-white surface fills, high-contrast button text |
+| Void | `#050505` | `--color-void` | Page canvas, full-bleed backgrounds — the default everything sits on |
+| Carbon | `#0c0b0a` | `--color-carbon` | Card surfaces, nav bars — one step above canvas for contained content |
+| Obsidian | `#151311` | `--color-obsidian` | Elevated surfaces, deeper card panels |
+| Graphite | `#272219` | `--color-graphite` | Subtle borders, dividers, ghost button outlines — low-contrast structural edges |
+| Smoke | `#40382a` | `--color-smoke` | Hairline borders at higher contrast than graphite — section separators |
+| Ash | `#70685a` | `--color-ash` | Muted body text, inactive icons, secondary metadata |
+| Fog | `#9d9586` | `--color-fog` | Tertiary text, placeholder copy, icon fills |
+| Mist | `#d9d3c7` | `--color-mist` | Secondary headings, button text on dark surfaces |
+| Bone | `#ebe6dc` | `--color-bone` | Near-white surface fills, high-contrast button text |
 | Paper | `#ffffff` | `--color-paper` | Primary headings, hero type, max-contrast emphasis text |
-| Acid Lime | `#e4f222` | `--color-acid-lime` | Primary action buttons, active nav indicators — electric accent that breaks the monochrome system |
+| Gold | `#e8a149` | `--color-gold` | Primary action buttons, active nav indicators — electric accent that breaks the monochrome system |
+| Gold Bright | `#fcc05b` | `--color-gold-bright` | Hover do botão primário, brilho de destaque (lua da logo) |
+| Gold Deep | `#b9792a` | `--color-gold-deep` | Lavagem de ouro no piso do hero, estados pressionados |
 | Pulse Green | `#27a644` | `--color-pulse-green` | Green outline accent for tags, dividers, and focused UI edges. Use as a supporting accent, not as a status color |
 | Coral Red | `#eb5757` | `--color-coral-red` | Red wash for highlight backgrounds, decorative bands, and soft emphasis behind content. Use as a supporting accent, not as a status color |
 | Signal Teal | `#02b8cc` | `--color-signal-teal` | Decorative accent, informational icon fills |
@@ -105,10 +109,10 @@ Linear's design system is a midnight command center built on near-black surfaces
 |------|-------|-------|
 | sm | `rgba(0, 0, 0, 0.4) 0px 2px 4px 0px` | `--shadow-sm` |
 | md | `rgba(0, 0, 0, 0.2) 0px 0px 12px 0px inset` | `--shadow-md` |
-| subtle | `rgb(35, 37, 42) 0px 0px 0px 1px inset` | `--shadow-subtle` |
+| subtle | `rgb(39, 34, 25) 0px 0px 0px 1px inset` | `--shadow-subtle` |
 | subtle-2 | `rgba(0, 0, 0, 0.2) 0px 0px 0px 1px` | `--shadow-subtle-2` |
 | subtle-3 | `rgba(0, 0, 0, 0.01) 0px 5px 2px 0px, rgba(0, 0, 0, 0.04) ...` | `--shadow-subtle-3` |
-| xl | `rgba(8, 9, 10, 0.6) 0px 4px 32px 0px` | `--shadow-xl` |
+| xl | `rgba(5, 5, 5, 0.6) 0px 4px 32px 0px` | `--shadow-xl` |
 | subtle-4 | `rgba(255, 255, 255, 0.03) 0px 0px 0px 1px inset, rgba(255...` | `--shadow-subtle-4` |
 | subtle-5 | `rgba(0, 0, 0, 0.1) 0px 0px 0px 2px` | `--shadow-subtle-5` |
 
@@ -121,35 +125,35 @@ Linear's design system is a midnight command center built on near-black surfaces
 
 ## Components
 
-### Primary Action Button (Acid Lime)
+### Primary Action Button (Gold)
 **Role:** High-emphasis CTA — the one chromatic button in the system
 
-Background #e4f222, text #08090a, border-radius 6px, padding 10px 16px, Inter 14px / weight 510, letter-spacing -0.011em. Sits as the sole filled chromatic element — every other button on the site is neutral.
+Background #e8a149, text #050505, border-radius 6px, padding 10px 16px, Inter 14px / weight 510, letter-spacing -0.011em. Sits as the sole filled chromatic element — every other button on the site is neutral.
 
 ### Nav Text Button
 **Role:** Top navigation items
 
-Transparent background, text #d0d6e0, padding 8px 12px, Inter 13px / weight 400. No border, no fill — pure typographic nav with underline on hover.
+Transparent background, text #d9d3c7, padding 8px 12px, Inter 13px / weight 400. No border, no fill — pure typographic nav with underline on hover.
 
 ### Pill Button
 **Role:** Tag chips, status pills, compact action triggers
 
-Background rgba(255,255,255,0.05), text #d0d6e0, border-radius 9999px, padding 4px 12px, Inter 12–13px / weight 400.
+Background rgba(255,255,255,0.05), text #d9d3c7, border-radius 9999px, padding 4px 12px, Inter 12–13px / weight 400.
 
 ### Ghost / Outline Button
 **Role:** Secondary actions, less prominent CTAs
 
-Transparent background, border 1px #23252a, text #d0d6e0, border-radius 6px, padding 8px 12px, Inter 13px / weight 400.
+Transparent background, border 1px #272219, text #d9d3c7, border-radius 6px, padding 8px 12px, Inter 13px / weight 400.
 
 ### Sign-up Button (Rounded Pill, Neutral)
 **Role:** High-emphasis nav CTA
 
-Background #ffffff, text #08090a, border-radius 9999px, padding 8px 16px, Inter 13px / weight 510. White pill against the dark nav bar — the second highest-contrast element after the acid-lime CTA.
+Background #ffffff, text #050505, border-radius 9999px, padding 8px 16px, Inter 13px / weight 510. White pill against the dark nav bar — the second highest-contrast element after the gold CTA.
 
 ### Card (Product Screenshot Frame)
 **Role:** Large showcase surface for product UI screenshots
 
-Background #0f1011, border-radius 12px, inset shadow rgb(35,37,42) 0 0 0 1px, padding 24px. Hairline inner border defines the card edge — no outer shadow, no glow.
+Background #0c0b0a, border-radius 12px, inset shadow rgb(39,34,25) 0 0 0 1px, padding 24px. Hairline inner border defines the card edge — no outer shadow, no glow.
 
 ### Card (Subtle)
 **Role:** Small content cards, nested panels
@@ -159,12 +163,12 @@ Background rgba(255,255,255,0.02), border-radius 6px, shadow rgba(0,0,0,0.4) 0 2
 ### Text Input
 **Role:** Form fields, search inputs
 
-Background rgba(255,255,255,0.02), border 1px rgba(255,255,255,0.08), text #d0d6e0, border-radius 6px, padding 12px 14px, Inter 14px / weight 400. Focus ring: border brightens to #d0d6e0.
+Background rgba(255,255,255,0.02), border 1px rgba(255,255,255,0.08), text #d9d3c7, border-radius 6px, padding 12px 14px, Inter 14px / weight 400. Focus ring: border brightens to #d9d3c7.
 
 ### Badge / Status Tag
 **Role:** Issue status, category labels, inline metadata
 
-Background rgba(255,255,255,0.05), text #8a8f98, border-radius 4px, padding 0px 6px, Inter 12px / weight 400. Color-coded variants use Pulse Green, Coral Red, Iris Violet, or Lavender fills.
+Background rgba(255,255,255,0.05), text #9d9586, border-radius 4px, padding 0px 6px, Inter 12px / weight 400. Color-coded variants use Pulse Green, Coral Red, Iris Violet, or Lavender fills.
 
 ### Logo Mark
 **Role:** Brand identification in nav
@@ -174,49 +178,49 @@ Linear wordmark + geometric glyph, Inter 16px / weight 510, color #ffffff. Glyph
 ### Logo Bar (Customer Strip)
 **Role:** Social proof — customer logos in a horizontal row
 
-Neutral grey logos (Vercel, Cursor, Oscar, OpenAI, Coinbase, Cash App, Boom, Ramp) at #8a8f98–#d0d6e0, evenly spaced with 48–64px gaps, no card backgrounds.
+Neutral grey logos (Vercel, Cursor, Oscar, OpenAI, Coinbase, Cash App, Boom, Ramp) at #9d9586–#d9d3c7, evenly spaced with 48–64px gaps, no card backgrounds.
 
 ### Hero Gradient Floor
 **Role:** Atmospheric base under the product screenshot
 
-Linear gradient from rgb(8,9,10) at 10% to rgb(208,214,224) at 100% — a subtle light wash that grounds the floating product UI against the void.
+Linear gradient from Void at 10% to Gold Deep at 30% opacity — a subtle warm wash that grounds the floating product UI against the void.
 
 ## Do's and Don'ts
 
 ### Do
 - Use Inter Variable with font-feature-settings 'cv01' on, 'ss03' on, 'zero' on — these alternate glyphs define Linear's typographic identity
-- Use #e4f222 exclusively for the single primary action per view — never for decoration, never for secondary buttons
+- Use #e8a149 exclusively for the single primary action per view — never for decoration, never for secondary buttons
 - Set body text at 16px Inter weight 400 with line-height 1.5 — larger reading sizes (17px+ at weight 590) are reserved for body emphasis blocks
 - Use letter-spacing -0.022em at 48px and above — tight tracking is non-negotiable for display type
 - Set card radius to 12px, button radius to 6px, pill radius to 9999px — three radii is the entire radius vocabulary
-- Use 0.5px hairline borders (#23252a or #383b3f) instead of shadows for surface separation — Linear's elevation comes from borders and subtle inner shadows
+- Use 0.5px hairline borders (#272219 or #40382a) instead of shadows for surface separation — Linear's elevation comes from borders and subtle inner shadows
 - Keep section gaps at 96px and element gaps at 8px — the 8/12/24/96 spacing ladder is the rhythm
 
 ### Don't
 - Do not use bold weights (700+) — Linear's type scale caps at weight 590, the system deliberately avoids heavy display weights
 - Do not use decorative gradients on buttons, cards, or text — gradients are reserved for the hero atmospheric floor only
-- Do not introduce additional chromatic accent colors as actions — the acid-lime button is the only chromatic UI element
+- Do not introduce additional chromatic accent colors as actions — the gold button is the only chromatic UI element
 - Do not use large radii (16px+) on cards or panels — 12px is the max card radius in this system
-- Do not use shadows to separate cards from the canvas — use hairline borders (#23252a) and inner inset shadows instead
-- Do not use chromatic text colors for body copy — all body text sits in the #d0d6e0 / #8a8f98 / #62666d grey scale
+- Do not use shadows to separate cards from the canvas — use hairline borders (#272219) and inner inset shadows instead
+- Do not use chromatic text colors for body copy — all body text sits in the #d9d3c7 / #9d9586 / #70685a grey scale
 - Do not use Berkeley Mono for headings or marketing copy — it is reserved for issue IDs, keyboard shortcuts, and technical metadata
 
 ## Surfaces
 
 | Level | Name | Value | Purpose |
 |-------|------|-------|---------|
-| 0 | Void | `#08090a` | Page canvas — the default full-bleed background |
-| 1 | Carbon | `#0f1011` | Card surfaces, product screenshot frames, nav containers |
-| 2 | Obsidian | `#161718` | Elevated panels, deeper nested surfaces |
-| 3 | Slate | `#23252a` | Interactive surface tint, ghost button fills, border-adjacent backgrounds |
+| 0 | Void | `#050505` | Page canvas — the default full-bleed background |
+| 1 | Carbon | `#0c0b0a` | Card surfaces, product screenshot frames, nav containers |
+| 2 | Obsidian | `#151311` | Elevated panels, deeper nested surfaces |
+| 3 | Slate | `#272219` | Interactive surface tint, ghost button fills, border-adjacent backgrounds |
 
 ## Elevation
 
-Elevation in Linear's system is achieved almost entirely through hairline borders (0.5px #23252a or 1px inset #23252a) and subtle dark drop shadows (rgba(0,0,0,0.4) 0 2px 4px) rather than layered shadow stacks. The visual hierarchy comes from the surface-level progression (#08090a → #0f1011 → #161718 → #23252a) and border definition, not from ambient shadow. The acid-lime CTA button uses an inset shadow stack (0px 5px 2px / 0px 3px 2px / 0px 1px 1px) — the only place in the system where a real shadow is applied to a chrome element.
+Elevation in Linear's system is achieved almost entirely through hairline borders (0.5px #272219 or 1px inset #272219) and subtle dark drop shadows (rgba(0,0,0,0.4) 0 2px 4px) rather than layered shadow stacks. The visual hierarchy comes from the surface-level progression (#050505 → #0c0b0a → #151311 → #272219) and border definition, not from ambient shadow. The gold CTA button uses an inset shadow stack (0px 5px 2px / 0px 3px 2px / 0px 1px 1px) — the only place in the system where a real shadow is applied to a chrome element.
 
 ## Imagery
 
-Linear's visual language is product-screenshot-first: the hero and section illustrations are real Linear app UI captured at full fidelity — issue cards, kanban boards, AI agent panels, command palettes — placed inside framed card containers with hairline borders. No stock photography, no lifestyle imagery, no abstract illustration. Logos appear as a customer strip in neutral grey (#8a8f98) at uniform size. Icons are minimal line-art SVGs in single-color grey scale. The hero screenshot floats on a subtle linear gradient (dark-to-light) that creates atmospheric depth without literal scenery. Every visual element is a functional artifact of the product itself.
+Linear's visual language is product-screenshot-first: the hero and section illustrations are real Linear app UI captured at full fidelity — issue cards, kanban boards, AI agent panels, command palettes — placed inside framed card containers with hairline borders. No stock photography, no lifestyle imagery, no abstract illustration. Logos appear as a customer strip in neutral grey (#9d9586) at uniform size. Icons are minimal line-art SVGs in single-color grey scale. The hero screenshot floats on a subtle linear gradient (dark-to-light) that creates atmospheric depth without literal scenery. Every visual element is a functional artifact of the product itself.
 
 ## Layout
 
@@ -226,25 +230,25 @@ Layout is max-width contained at ~1200px, centered, with full-bleed dark backgro
 
 **Quick Color Reference:**
 - text (primary heading): #ffffff
-- text (body): #d0d6e0
-- text (muted): #8a8f98
-- background (canvas): #08090a
-- background (card): #0f1011
-- border (hairline): #23252a
-- accent (CTA): #e4f222
-- primary action: #e4f222 (filled action)
+- text (body): #d9d3c7
+- text (muted): #9d9586
+- background (canvas): #050505
+- background (card): #0c0b0a
+- border (hairline): #272219
+- accent (CTA): #e8a149
+- primary action: #e8a149 (filled action)
 
 **3-5 Example Component Prompts:**
 
-1. **Hero headline block:** Full-bleed #08090a canvas. Headline at 64px Inter Variable weight 510, color #ffffff, letter-spacing -0.022em, line-height 1.0. Subtext at 16px Inter weight 400, color #8a8f98. No button — secondary link text in #d0d6e0 with arrow glyph.
+1. **Hero headline block:** Full-bleed #050505 canvas. Headline at 64px Inter Variable weight 510, color #ffffff, letter-spacing -0.022em, line-height 1.0. Subtext at 16px Inter weight 400, color #9d9586. No button — secondary link text in #d9d3c7 with arrow glyph.
 
-2. **Product screenshot card:** Background #0f1011, border-radius 12px, inset border 1px #23252a via box-shadow, padding 24px. Contains a simulated app UI at full opacity over the card surface. No outer drop shadow.
+2. **Product screenshot card:** Background #0c0b0a, border-radius 12px, inset border 1px #272219 via box-shadow, padding 24px. Contains a simulated app UI at full opacity over the card surface. No outer drop shadow.
 
-3. **Acid-lime primary action button:** Background #e4f222, text #08090a, border-radius 6px, padding 10px 16px, Inter 14px weight 510, letter-spacing -0.011em. Only one per view.
+3. **Gold primary action button:** Background #e8a149, text #050505, border-radius 6px, padding 10px 16px, Inter 14px weight 510, letter-spacing -0.011em. Only one per view.
 
-4. **Nav top bar:** Background #08090a (transparent over canvas), padding 16px horizontal, max-width 1200px centered. Logo wordmark #ffffff at 16px weight 510 left-aligned. Nav links #d0d6e0 at 13px weight 400, 8px gaps. Right-aligned white pill sign-up button: bg #ffffff, text #08090a, border-radius 9999px, padding 8px 16px.
+4. **Nav top bar:** Background #050505 (transparent over canvas), padding 16px horizontal, max-width 1200px centered. Logo wordmark #ffffff at 16px weight 510 left-aligned. Nav links #d9d3c7 at 13px weight 400, 8px gaps. Right-aligned white pill sign-up button: bg #ffffff, text #050505, border-radius 9999px, padding 8px 16px.
 
-5. **Status badge row:** Horizontal flex, 8px gap. Each badge: background rgba(255,255,255,0.05), text #8a8f98, border-radius 4px, padding 0px 6px, Inter 12px weight 400. Color-coded variants: #27a644 for success, #eb5757 for error, #6366f1 for tags.
+5. **Status badge row:** Horizontal flex, 8px gap. Each badge: background rgba(255,255,255,0.05), text #9d9586, border-radius 4px, padding 0px 6px, Inter 12px weight 400. Color-coded variants: #27a644 for success, #eb5757 for error, #6366f1 for tags.
 
 ## Type Scale Detail
 
@@ -264,7 +268,7 @@ Micro: 10px / 510 / lh 1.5 / ls default
 ## Similar Brands
 
 - **Vercel** — Same dark-canvas-first approach with hairline borders, tight Inter typography, and product-screenshot-as-hero layout — both treat the product UI as the visual content rather than illustration
-- **Cursor** — Identical midnight dark mode with acid-lime accent CTA, compact Inter type at 400–510 weights, and product-screenshot showcase cards at 12px radius
+- **Cursor** — Identical midnight dark mode with gold accent CTA, compact Inter type at 400–510 weights, and product-screenshot showcase cards at 12px radius
 - **Raycast** — Shared dark precision-instrument aesthetic — compact spacing, 6px button radius, monochromatic chrome with a single functional accent color for active states
 - **Framer** — Same dark-canvas layout language with large 48–64px Inter headings at tight tracking, product-screenshot hero cards, and minimal ornament between sections
 
@@ -275,17 +279,19 @@ Micro: 10px / 510 / lh 1.5 / ls default
 ```css
 :root {
   /* Colors */
-  --color-void: #08090a;
-  --color-carbon: #0f1011;
-  --color-obsidian: #161718;
-  --color-graphite: #23252a;
-  --color-smoke: #383b3f;
-  --color-ash: #62666d;
-  --color-fog: #8a8f98;
-  --color-mist: #d0d6e0;
-  --color-bone: #e5e5e6;
+  --color-void: #050505;
+  --color-carbon: #0c0b0a;
+  --color-obsidian: #151311;
+  --color-graphite: #272219;
+  --color-smoke: #40382a;
+  --color-ash: #70685a;
+  --color-fog: #9d9586;
+  --color-mist: #d9d3c7;
+  --color-bone: #ebe6dc;
   --color-paper: #ffffff;
-  --color-acid-lime: #e4f222;
+  --color-gold: #e8a149;
+  --color-gold-bright: #fcc05b;
+  --color-gold-deep: #b9792a;
   --color-pulse-green: #27a644;
   --color-coral-red: #eb5757;
   --color-signal-teal: #02b8cc;
@@ -372,18 +378,18 @@ Micro: 10px / 510 / lh 1.5 / ls default
   /* Shadows */
   --shadow-sm: rgba(0, 0, 0, 0.4) 0px 2px 4px 0px;
   --shadow-md: rgba(0, 0, 0, 0.2) 0px 0px 12px 0px inset;
-  --shadow-subtle: rgb(35, 37, 42) 0px 0px 0px 1px inset;
+  --shadow-subtle: rgb(39, 34, 25) 0px 0px 0px 1px inset;
   --shadow-subtle-2: rgba(0, 0, 0, 0.2) 0px 0px 0px 1px;
   --shadow-subtle-3: rgba(0, 0, 0, 0.01) 0px 5px 2px 0px, rgba(0, 0, 0, 0.04) 0px 3px 2px 0px, rgba(0, 0, 0, 0.07) 0px 1px 1px 0px, rgba(0, 0, 0, 0.08) 0px 0px 1px 0px;
-  --shadow-xl: rgba(8, 9, 10, 0.6) 0px 4px 32px 0px;
+  --shadow-xl: rgba(5, 5, 5, 0.6) 0px 4px 32px 0px;
   --shadow-subtle-4: rgba(255, 255, 255, 0.03) 0px 0px 0px 1px inset, rgba(255, 255, 255, 0.04) 0px 1px 0px 0px inset, rgba(0, 0, 0, 0.6) 0px 0px 0px 1px, rgba(0, 0, 0, 0.1) 0px 4px 4px 0px;
   --shadow-subtle-5: rgba(0, 0, 0, 0.1) 0px 0px 0px 2px;
 
   /* Surfaces */
-  --surface-void: #08090a;
-  --surface-carbon: #0f1011;
-  --surface-obsidian: #161718;
-  --surface-slate: #23252a;
+  --surface-void: #050505;
+  --surface-carbon: #0c0b0a;
+  --surface-obsidian: #151311;
+  --surface-slate: #272219;
 }
 ```
 
@@ -392,17 +398,19 @@ Micro: 10px / 510 / lh 1.5 / ls default
 ```css
 @theme {
   /* Colors */
-  --color-void: #08090a;
-  --color-carbon: #0f1011;
-  --color-obsidian: #161718;
-  --color-graphite: #23252a;
-  --color-smoke: #383b3f;
-  --color-ash: #62666d;
-  --color-fog: #8a8f98;
-  --color-mist: #d0d6e0;
-  --color-bone: #e5e5e6;
+  --color-void: #050505;
+  --color-carbon: #0c0b0a;
+  --color-obsidian: #151311;
+  --color-graphite: #272219;
+  --color-smoke: #40382a;
+  --color-ash: #70685a;
+  --color-fog: #9d9586;
+  --color-mist: #d9d3c7;
+  --color-bone: #ebe6dc;
   --color-paper: #ffffff;
-  --color-acid-lime: #e4f222;
+  --color-gold: #e8a149;
+  --color-gold-bright: #fcc05b;
+  --color-gold-deep: #b9792a;
   --color-pulse-green: #27a644;
   --color-coral-red: #eb5757;
   --color-signal-teal: #02b8cc;
@@ -468,10 +476,10 @@ Micro: 10px / 510 / lh 1.5 / ls default
   /* Shadows */
   --shadow-sm: rgba(0, 0, 0, 0.4) 0px 2px 4px 0px;
   --shadow-md: rgba(0, 0, 0, 0.2) 0px 0px 12px 0px inset;
-  --shadow-subtle: rgb(35, 37, 42) 0px 0px 0px 1px inset;
+  --shadow-subtle: rgb(39, 34, 25) 0px 0px 0px 1px inset;
   --shadow-subtle-2: rgba(0, 0, 0, 0.2) 0px 0px 0px 1px;
   --shadow-subtle-3: rgba(0, 0, 0, 0.01) 0px 5px 2px 0px, rgba(0, 0, 0, 0.04) 0px 3px 2px 0px, rgba(0, 0, 0, 0.07) 0px 1px 1px 0px, rgba(0, 0, 0, 0.08) 0px 0px 1px 0px;
-  --shadow-xl: rgba(8, 9, 10, 0.6) 0px 4px 32px 0px;
+  --shadow-xl: rgba(5, 5, 5, 0.6) 0px 4px 32px 0px;
   --shadow-subtle-4: rgba(255, 255, 255, 0.03) 0px 0px 0px 1px inset, rgba(255, 255, 255, 0.04) 0px 1px 0px 0px inset, rgba(0, 0, 0, 0.6) 0px 0px 0px 1px, rgba(0, 0, 0, 0.1) 0px 4px 4px 0px;
   --shadow-subtle-5: rgba(0, 0, 0, 0.1) 0px 0px 0px 2px;
 }

@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>{% block title %}ZadAI{% endblock %}</title>
+  <link rel="icon" href="{{ url_for('static', path='favicon.png') }}" type="image/png">
+  <link rel="stylesheet" href="{{ url_for('static', path='css/main.css') }}">
+</head>
+<body class="flex min-h-dvh flex-col {% block body_class %}{% endblock %}">
+  <header class="sticky top-0 z-10 border-b border-graphite bg-void/80 backdrop-blur-md">
+    <nav class="page flex h-56 items-center justify-between" aria-label="Principal">
+      <a href="/" class="flex items-center gap-8 text-body-sm font-w590 text-paper" aria-label="ZadAI, página inicial">
+        <img src="{{ url_for('static', path='img/logo-mark.png') }}" alt="" width="24" height="21" class="h-auto w-24">
+        <span>Zad<span class="text-gold">AI</span></span>
+      </a>
+      <div class="flex items-center gap-8">
+        <a href="/docs" class="nav-link" {% if active == 'project' %}aria-current="page"{% endif %}>Projeto</a>
+        <a href="/chat" class="nav-link" {% if active == 'chat' %}aria-current="page"{% endif %}>Conversar</a>
+        {% if user %}
+          <form method="post" action="/logout">
+            <button type="submit" class="btn-pill">Sair</button>
+          </form>
+        {% elif active != 'login' %}
+          <a href="/" class="btn-pill">Entrar</a>
+        {% endif %}
+      </div>
+    </nav>
+  </header>
+
+  <main class="flex-1 {% block main_class %}{% endblock %}">
+    {% block content %}{% endblock %}
+  </main>
+
+  {% block footer %}
+  <footer class="border-t border-graphite">
+    <div class="page flex flex-col gap-8 py-32 text-caption leading-caption text-fog md:flex-row md:items-center md:justify-between">
+      <span>ZadAI, projeto pessoal de assistente de IA local.</span>
+      <span class="meta">localhost</span>
+    </div>
+  </footer>
+  {% endblock %}
+</body>
+</html>

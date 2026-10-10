@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block title %}Conversar | ZadAI{% endblock %}
+{% block body_class %}h-dvh{% endblock %}
+{% block main_class %}flex min-h-0 flex-col{% endblock %}
+
+{% block content %}
+<section class="page flex min-h-0 flex-1 flex-col py-16 md:py-24">
+  <div class="card flex min-h-0 flex-1 flex-col p-0">
+
+    <div id="messages" class="flex flex-1 flex-col gap-24 overflow-y-auto p-16 md:p-24"
+         role="log" aria-live="polite" aria-label="Conversa com o ZadAI">
+      <div id="empty-state" class="m-auto flex max-w-md flex-col items-center gap-16 text-center">
+        <img src="{{ url_for('static', path='img/logo-mark.png') }}" alt="" width="210" height="184"
+             class="logo-glow h-auto w-96">
+        <h1 class="heading-card">Pergunte algo ao ZadAI</h1>
+        <p class="body-sm text-fog">As respostas vêm do modelo que roda na sua máquina. Nada sai do seu computador.</p>
+        <div class="mt-8 flex flex-wrap justify-center gap-8">
+          <button type="button" class="pill" data-suggestion="O que você consegue fazer?">O que você consegue fazer?</button>
+          <button type="button" class="pill" data-suggestion="Me ajude a organizar as minhas tarefas de hoje.">Organizar minhas tarefas de hoje</button>
+          <button type="button" class="pill" data-suggestion="Explique o que é uma API REST em poucas linhas.">Explicar o que é uma API REST</button>
+        </div>
+      </div>
+    </div>
+
+    <form id="composer" class="flex flex-col gap-8 border-t border-graphite p-16" autocomplete="off">
+      <div class="flex items-end gap-12">
+        <label for="prompt" class="sr-only">Mensagem para o ZadAI</label>
+        <textarea id="prompt" rows="1" maxlength="8000" class="input max-h-128 resize-none"
+                  placeholder="Escreva uma mensagem" autofocus></textarea>
+        <button id="send" type="submit" class="btn-primary shrink-0">Enviar</button>
+      </div>
+      <p class="hidden text-caption leading-caption text-fog md:block">
+        <kbd class="meta">Enter</kbd> envia, <kbd class="meta">Shift</kbd> + <kbd class="meta">Enter</kbd> quebra a linha.
+      </p>
+    </form>
+  </div>
+</section>
+<template id="thinking-tpl">
+  <span class="thinking" role="status">
+    <span class="sr-only">O ZadAI está pensando</span>
+    <svg width="176" height="70" viewBox="0 0 160 64" fill="none" aria-hidden="true">
+      <g class="hud" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+        <path d="M2 32h36"/><path d="M122 32h13l5-5h18"/>
+      </g>
+      <path class="hud" d="M16 28l4 4-4 4-4-4z" fill="currentColor"/>
+      <g class="arc-outer" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.7">
+        <path d="M53.7 22.4A28 28 0 0 1 80.0 4.0"/><path d="M106.3 41.6A28 28 0 0 1 80.0 60.0"/>
+      </g>
+      <g class="arc-inner" stroke="currentColor" stroke-width="4" stroke-linecap="round">
+        <path d="M80.0 13.0A19 19 0 0 1 98.7 28.7"/><path d="M96.5 41.5A19 19 0 0 1 73.5 49.9"/><path d="M63.5 41.5A19 19 0 0 1 67.8 17.4"/>
+      </g>
+      <path class="star" d="M80 24l2.4 5.6L88 32l-5.6 2.4L80 40l-2.4-5.6L72 32l5.6-2.4z" fill="currentColor"/>
+    </svg>
+  </span>
+</template>
+<script src="{{ url_for('static', path='js/chat.js') }}" defer></script>
+{% endblock %}
+
+{% block footer %}{% endblock %}

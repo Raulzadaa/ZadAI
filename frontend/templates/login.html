@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}Entrar | ZadAI{% endblock %}
+
+{% block content %}
+<section class="page flex flex-col items-center gap-32 py-64 md:py-80">
+  <img src="{{ url_for('static', path='img/logo-full.png') }}" width="530" height="334"
+       alt="ZadAI. Sua IA. Seu mundo." class="logo-glow h-auto w-full max-w-xs">
+  <div class="card w-full max-w-sm">
+    <h1 class="heading-card">Entrar no ZadAI</h1>
+
+    <form method="post" action="/" class="mt-24 flex flex-col gap-16">
+      <input type="hidden" name="next" value="{{ next }}">
+
+      <label class="field-label">
+        Usuário
+        <input class="input" type="text" name="username" value="{{ username }}"
+               autocomplete="username" autocapitalize="none" spellcheck="false" required autofocus>
+      </label>
+
+      <label class="field-label">
+        Senha
+        <input class="input" type="password" name="password" autocomplete="current-password" required>
+      </label>
+
+      {% if error %}
+        <p role="alert" class="text-caption leading-body-sm text-coral-red">{{ error }}</p>
+      {% endif %}
+
+      <button type="submit" class="btn-primary mt-8">Entrar</button>
+    </form>
+  </div>
+  <div>
+    <a href="/docs" class="btn-ghost">Conheça o projeto</a>
+  </div>
+</section>
+{% endblock %}
+
+{% block footer %}{% endblock %}

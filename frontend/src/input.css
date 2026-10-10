@@ -1,0 +1,184 @@
+@import "tailwindcss";
+@import "./app.css";
+
+@source "../templates";
+@source "../static/js";
+
+/* Tokens do DESIGN.md que o app.css ainda não declara.
+   Quando quiser, mova este bloco para o app.css. */
+@theme {
+  --font-weight-w510: 510;
+  --font-weight-w590: 590;
+  --container-page: 1200px;
+}
+
+@font-face {
+  font-family: 'Inter Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url('/static/fonts/inter-latin-wght-normal.woff2') format('woff2-variations');
+}
+
+@layer base {
+  html {
+    color-scheme: dark;
+  }
+  body {
+    @apply bg-void text-mist font-inter-variable text-base leading-normal antialiased;
+    font-feature-settings: "cv01" 1, "ss03" 1, "zero" 1;
+  }
+  ::selection {
+    @apply bg-paper/20 text-paper;
+  }
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-gold;
+  }
+}
+
+/* Base compartilhada pelos botões (Tailwind v4 só aceita @apply em utilities) */
+@utility btn {
+  @apply inline-flex cursor-pointer items-center justify-center gap-8 font-w510
+    transition-colors duration-150 disabled:cursor-not-allowed disabled:opacity-50;
+}
+
+@layer components {
+  /* Layout */
+  .page {
+    @apply mx-auto w-full max-w-page px-16 md:px-24;
+  }
+  .section {
+    @apply py-64 md:py-96;
+  }
+
+  /* Tipografia */
+  .heading-hero {
+    @apply font-w510 text-paper text-heading-sm leading-heading-sm tracking-heading-sm
+      md:text-heading md:leading-heading md:tracking-heading
+      lg:text-heading-lg lg:leading-heading-lg lg:tracking-heading-lg;
+  }
+  .heading-section {
+    @apply font-w510 text-paper text-heading-sm leading-heading-sm tracking-heading-sm
+      md:text-heading md:leading-heading md:tracking-heading;
+  }
+  .heading-card {
+    @apply font-normal text-paper text-subheading leading-subheading tracking-subheading;
+  }
+  .body-lead {
+    @apply text-fog text-body-lg leading-body-lg tracking-body-lg;
+  }
+  .body-sm {
+    @apply text-body-sm leading-body-sm tracking-body-sm;
+  }
+  .meta {
+    @apply font-berkeley-mono text-caption leading-body-sm text-fog;
+  }
+
+  /* Botões */
+  .btn-primary {
+    @apply btn rounded-md bg-gold px-16 py-12 text-body-sm leading-caption text-void
+      shadow-subtle-3 hover:bg-gold-bright;
+  }
+  .btn-ghost {
+    @apply btn rounded-md border border-graphite px-12 py-8 text-caption leading-caption
+      font-normal text-mist hover:border-smoke hover:bg-paper/5;
+  }
+  .btn-pill {
+    @apply btn rounded-full-2 bg-paper px-16 py-8 text-caption leading-caption text-void
+      hover:bg-bone;
+  }
+  .nav-link {
+    @apply px-12 py-8 text-caption leading-caption text-mist hover:underline
+      aria-[current=page]:text-paper;
+  }
+  .link-cta {
+    @apply inline-flex items-center gap-8 text-body-sm leading-body-sm text-mist
+      hover:text-paper hover:underline;
+  }
+
+  /* Superfícies */
+  .card {
+    @apply rounded-xl bg-carbon p-24 shadow-subtle;
+  }
+  .card-subtle {
+    @apply rounded-md bg-paper/2 p-8 shadow-sm;
+  }
+
+  /* Pills e tags */
+  .pill {
+    @apply inline-flex items-center rounded-full-2 bg-paper/5 px-12 py-4 text-caption
+      leading-caption font-normal text-mist;
+  }
+  button.pill {
+    @apply cursor-pointer transition-colors duration-150 hover:bg-paper/10;
+  }
+  .pill-gold {
+    @apply bg-gold/15 text-gold-bright;
+  }
+
+  /* Formulário */
+  .field-label {
+    @apply flex flex-col gap-8 text-caption leading-caption text-fog;
+  }
+  .input {
+    @apply w-full rounded-md border border-paper/8 bg-paper/2 px-12 py-12 text-body-sm
+      leading-body-sm font-normal text-mist placeholder:text-fog focus:border-gold
+      focus:outline-none;
+  }
+
+  /* Chat */
+  .msg-user {
+    @apply max-w-2xl self-end whitespace-pre-wrap break-words rounded-xl bg-obsidian px-16
+      py-12 text-body-sm leading-body-sm text-paper shadow-subtle;
+  }
+  .msg-assistant {
+    @apply flex max-w-2xl flex-col gap-4 self-start;
+  }
+  .msg-label {
+    @apply text-caption leading-caption text-fog;
+  }
+  .msg-body {
+    @apply whitespace-pre-wrap break-words text-body-sm leading-body-sm text-mist;
+  }
+  .msg-error {
+    @apply text-coral-red;
+  }
+  /* Indicador de "pensando": anel da logo girando */
+  .thinking {
+    @apply inline-flex items-center py-8 text-gold;
+    filter: drop-shadow(0 0 6px color-mix(in srgb, var(--color-gold) 55%, transparent));
+  }
+  .thinking .arc-outer {
+    transform-origin: 80px 32px;
+    animation: think-spin 3.2s linear infinite reverse;
+  }
+  .thinking .arc-inner {
+    transform-origin: 80px 32px;
+    animation: think-spin 1.4s linear infinite;
+  }
+  .thinking .star {
+    transform-origin: 80px 32px;
+    animation: think-pulse 1.4s ease-in-out infinite;
+  }
+  .thinking .hud {
+    animation: think-fade 1.4s ease-in-out infinite;
+  }
+  .logo-glow {
+    filter: drop-shadow(0 0 20px color-mix(in srgb, var(--color-gold) 18%, transparent));
+  }
+}
+
+@keyframes think-spin {
+  to { transform: rotate(360deg); }
+}
+@keyframes think-pulse {
+  0%, 100% { transform: scale(0.8); opacity: 0.7; }
+  50% { transform: scale(1.1); opacity: 1; }
+}
+@keyframes think-fade {
+  0%, 100% { opacity: 0.35; }
+  50% { opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .thinking .arc-outer, .thinking .arc-inner, .thinking .star, .thinking .hud { animation: none; }
+}

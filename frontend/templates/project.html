@@ -1,0 +1,146 @@
+{% extends "base.html" %}
+{% block title %}ZadAI | Assistente de IA local{% endblock %}
+
+{% block content %}
+<!-- Hero -->
+<section class="page pt-64 md:pt-96">
+  <div class="flex flex-col gap-32 md:flex-row md:items-end md:justify-between">
+    <div class="max-w-3xl">
+      <h1 class="heading-hero">Um assistente de IA que roda inteiro na sua máquina.</h1>
+      <p class="body-lead mt-24 max-w-xl">O ZadAI escuta, entende e executa tarefas usando só o que está no seu computador: reconhecimento de voz, modelo de linguagem e síntese de fala locais.</p>
+    </div>
+    <a href="/chat" class="link-cta shrink-0">Conversar com o ZadAI <span aria-hidden="true">→</span></a>
+  </div>
+
+  <!-- Moldura de produto sobre o piso em gradiente (único uso de gradiente) -->
+  <div class="mt-64 rounded-xl bg-linear-to-b from-void from-10% to-gold-deep/30 px-16 pt-32 pb-16 md:px-48 md:pt-48 md:pb-32">
+    <div class="card mx-auto max-w-3xl" aria-hidden="true">
+      <div class="flex items-center justify-between border-b border-graphite pb-16">
+        <span class="flex items-center gap-8 text-body-sm font-w590 text-paper"><img src="{{ url_for('static', path='img/logo-mark.png') }}" alt="" width="20" height="18" class="h-auto w-20"><span>Zad<span class="text-gold">AI</span></span></span>
+        <span class="pill pill-gold">Local</span>
+      </div>
+      <div class="flex flex-col gap-16 py-24">
+        <div class="msg-user">O que você consegue fazer?</div>
+        <div class="msg-assistant">
+          <span class="msg-label">ZadAI</span>
+          <div class="msg-body">Posso conversar, responder por voz em português ou inglês e executar tarefas na sua máquina. Tudo roda localmente.</div>
+        </div>
+      </div>
+      <div class="input text-fog">Escreva uma mensagem</div>
+    </div>
+  </div>
+  <p class="mt-12 text-center text-caption leading-caption text-fog">Exemplo ilustrativo da tela de conversa.</p>
+</section>
+
+<!-- Documentação -->
+<section id="documentacao" class="page section">
+  <div class="grid gap-48 md:grid-cols-2">
+    <div class="self-start md:sticky md:top-96">
+      <h2 class="heading-section">Como o ZadAI funciona</h2>
+      <p class="body-lead mt-24 max-w-md">Cada etapa é um módulo separado em <span class="meta">backend/src</span>. Dá para trocar uma peça sem mexer nas outras.</p>
+
+      <div class="card mt-32">
+        <p class="text-body-sm font-w510 text-paper">Rodar o projeto</p>
+        <pre class="mt-12 overflow-x-auto rounded-md bg-void p-12 font-berkeley-mono text-caption leading-body-sm text-mist shadow-subtle"><code>npm run css:build
+uvicorn backend.src.api.main:app --reload</code></pre>
+        <p class="mt-12 text-caption leading-body-sm text-fog">Antes, copie <span class="meta">.env.example</span> para <span class="meta">.env</span> e preencha usuário, hash da senha e modelo.</p>
+      </div>
+    </div>
+
+    <ol class="flex flex-col">
+      <li class="flex flex-col gap-4 border-t border-graphite py-20">
+        <div class="flex flex-wrap items-baseline justify-between gap-x-16 gap-y-4">
+          <h3 class="text-body-sm font-w510 text-paper">Palavra de ativação</h3>
+          <span class="meta">audio/wake_word.py</span>
+        </div>
+        <p class="body-sm text-fog">Fica em escuta e só acorda o resto do sistema quando ouve a palavra certa.</p>
+      </li>
+      <li class="flex flex-col gap-4 border-t border-graphite py-20">
+        <div class="flex flex-wrap items-baseline justify-between gap-x-16 gap-y-4">
+          <h3 class="text-body-sm font-w510 text-paper">Gravação e transcrição</h3>
+          <span class="meta">audio/recorder.py, audio/stt.py</span>
+        </div>
+        <p class="body-sm text-fog">Grava o que você diz e converte a fala em texto, sem enviar áudio para fora.</p>
+      </li>
+      <li class="flex flex-col gap-4 border-t border-graphite py-20">
+        <div class="flex flex-wrap items-baseline justify-between gap-x-16 gap-y-4">
+          <h3 class="text-body-sm font-w510 text-paper">Cérebro</h3>
+          <span class="meta">brain/llm.py</span>
+        </div>
+        <p class="body-sm text-fog">Entrega o texto ao modelo de linguagem local e decide entre responder ou acionar uma tarefa.</p>
+      </li>
+      <li class="flex flex-col gap-4 border-t border-graphite py-20">
+        <div class="flex flex-wrap items-baseline justify-between gap-x-16 gap-y-4">
+          <h3 class="text-body-sm font-w510 text-paper">Tarefas</h3>
+          <span class="meta">tasks/manager.py, tasks/actions.py</span>
+        </div>
+        <p class="body-sm text-fog">Executa as ações pedidas, uma a uma, e devolve o resultado para a conversa.</p>
+      </li>
+      <li class="flex flex-col gap-4 border-y border-graphite py-20">
+        <div class="flex flex-wrap items-baseline justify-between gap-x-16 gap-y-4">
+          <h3 class="text-body-sm font-w510 text-paper">Voz</h3>
+          <span class="meta">audio/tts.py</span>
+        </div>
+        <p class="body-sm text-fog">Lê a resposta em voz alta com vozes locais em português do Brasil e inglês dos EUA.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- Ambições -->
+<section id="ambicoes" class="page section pt-0 md:pt-0">
+  <div class="grid gap-48 md:grid-cols-2">
+    <div class="self-start md:sticky md:top-96">
+      <h2 class="heading-section">Para onde o projeto vai</h2>
+      <p class="body-lead mt-24 max-w-md">A base é local e privada. A ambição é fazer dela um assistente que você usa o dia todo, por voz ou pela web.</p>
+    </div>
+
+    <ul class="flex flex-col">
+      <li class="flex flex-col gap-8 border-t border-graphite py-20">
+        <div class="flex items-center justify-between gap-16">
+          <h3 class="text-body-sm font-w510 text-paper">Interface web</h3>
+          <span class="pill pill-gold">Agora</span>
+        </div>
+        <p class="body-sm text-fog">Conversar com o ZadAI pelo navegador, com login e o histórico da sessão.</p>
+      </li>
+      <li class="flex flex-col gap-8 border-t border-graphite py-20">
+        <div class="flex items-center justify-between gap-16">
+          <h3 class="text-body-sm font-w510 text-paper">Voz no navegador</h3>
+          <span class="pill">Próximo</span>
+        </div>
+        <p class="body-sm text-fog">Falar com o ZadAI e ouvir a resposta na própria página, com os mesmos modelos de voz locais.</p>
+      </li>
+      <li class="flex flex-col gap-8 border-t border-graphite py-20">
+        <div class="flex items-center justify-between gap-16">
+          <h3 class="text-body-sm font-w510 text-paper">Respostas em tempo real</h3>
+          <span class="pill">Próximo</span>
+        </div>
+        <p class="body-sm text-fog">Mostrar a resposta enquanto ela é gerada, em vez de esperar o texto completo.</p>
+      </li>
+      <li class="flex flex-col gap-8 border-t border-graphite py-20">
+        <div class="flex items-center justify-between gap-16">
+          <h3 class="text-body-sm font-w510 text-paper">Mais tarefas</h3>
+          <span class="pill">Depois</span>
+        </div>
+        <p class="body-sm text-fog">Ampliar o que o ZadAI faz sozinho: notas, arquivos e rotinas do dia a dia.</p>
+      </li>
+      <li class="flex flex-col gap-8 border-y border-graphite py-20">
+        <div class="flex items-center justify-between gap-16">
+          <h3 class="text-body-sm font-w510 text-paper">Memória de longo prazo</h3>
+          <span class="pill">Depois</span>
+        </div>
+        <p class="body-sm text-fog">Lembrar de conversas anteriores sem que nada saia da sua máquina.</p>
+      </li>
+    </ul>
+  </div>
+
+  <div class="mt-64 flex flex-wrap items-center gap-8">
+    <span class="mr-8 text-caption leading-caption text-fog">Feito com</span>
+    <span class="pill">Python</span>
+    <span class="pill">FastAPI</span>
+    <span class="pill">Ollama</span>
+    <span class="pill">Whisper e Piper</span>
+    <span class="pill">Tailwind v4</span>
+  </div>
+</section>
+{% endblock %}

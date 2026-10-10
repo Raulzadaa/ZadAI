@@ -1,7 +1,7 @@
 import ollama
 import json
 
-from backend.config.config import IA_CONTENT
+from backend.config.config import IA_CONTENT, ROUTER_SCHEMA
 from backend.src.tasks.actions import create_file
 from backend.src.tasks.manager import tools
 
@@ -18,12 +18,12 @@ class LLMModule:
     def __init__(self):
 
         self.models = {
-            "model_general" : "qwen3:8b",
+            "model_general" : "qwen3.5:9b",
             "model_coder" : "qwen2.5-coder",
-            "model_search" : "qwen3:8b"
+            "model_search" : "qwen3.5:9b"
         }
     
-        self.model_orchestrator = "granite4.2:3b"
+        self.model_orchestrator = "qwen3.5:0.8b"
         
 
     def prompt(self, prompt):
@@ -35,18 +35,26 @@ class LLMModule:
                 {"role": "user", "content": prompt}
             ],
             think=False,
-            format="json"
+            format=ROUTER_SCHEMA
         )
 
-        nosj = extract_json(response["message"]["content"])
+        try:
+            nosj = extract_json(response["message"]["content"])
+        except ValueError:
+            # JSON quebrado: segue para o modelo geral com o pedido original
+            return self.task_prompt("general", prompt)
 
-        language = nosj["language"]
         category = nosj["category"].strip().lower()
-        prompt = nosj["prompt"]
-
+        answer = (nosj.get("answer") or "").strip()
         print(nosj)
 
-        return self.task_prompt(category,prompt)
+        if category == "direct" and answer:
+            return answer
+
+        if category not in ("general", "coder", "search"):
+            category = "general"
+
+        return self.task_prompt(category, nosj["prompt"])
 
 
     def task_prompt(self,model,prompt):
