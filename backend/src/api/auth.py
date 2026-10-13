@@ -1,5 +1,6 @@
 import asyncio
 import secrets
+import time
 
 from fastapi import APIRouter, Form, Request
 from fastapi.responses import RedirectResponse
@@ -10,6 +11,14 @@ from .security import verify_password
 from .templating import render
 
 router = APIRouter()
+
+_failures: list[float] = []
+_WINDOW, _MAX = 600, 5
+
+def _blocked() -> bool:
+    now = time.monotonic()
+    _failures[:] = [t for t in _failures if now - t < _WINDOW]
+    return len(_failures) >= _MAX
 
 
 @router.get("/", include_in_schema=False)
@@ -26,6 +35,12 @@ async def login(
     password: str = Form(...),
     next: str = Form("/chat"),
 ):
+    if _blocked():
+        return render(
+            request, "login.html", status_code=429, active="login",
+            next=safe_next(next), error="Muitas tentativas. Aguarde alguns minutos.", username="",
+        )
+
     configured = bool(settings.USERNAME and settings.PASSWORD_HASH)
     user_ok = secrets.compare_digest(username.encode(), settings.USERNAME.encode())
     pass_ok = verify_password(password, settings.PASSWORD_HASH) if configured else False

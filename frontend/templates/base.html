@@ -5,14 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="dark">
   <title>{% block title %}ZadAI{% endblock %}</title>
-  <link rel="icon" href="{{ url_for('static', path='favicon.png') }}" type="image/png">
-  <link rel="stylesheet" href="{{ url_for('static', path='css/main.css') }}">
+  <link rel="icon" href="/static/favicon.png" type="image/png">
+  <link rel="stylesheet" href="/static/css/main.css">
 </head>
 <body class="flex min-h-dvh flex-col {% block body_class %}{% endblock %}">
   <header class="sticky top-0 z-10 border-b border-graphite bg-void/80 backdrop-blur-md">
     <nav class="page flex h-56 items-center justify-between" aria-label="Principal">
       <a href="/" class="flex items-center gap-8 text-body-sm font-w590 text-paper" aria-label="ZadAI, página inicial">
-        <img src="{{ url_for('static', path='img/logo-mark.png') }}" alt="" width="24" height="21" class="h-auto w-24">
+        <img src="/static/img/logo-mark.png" alt="" width="24" height="21" class="h-auto w-24">
         <span>Zad<span class="text-gold">AI</span></span>
       </a>
       <div class="flex items-center gap-8">

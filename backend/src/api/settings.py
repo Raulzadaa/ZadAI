@@ -36,3 +36,4 @@ SYSTEM_PROMPT = os.getenv(
 
 HOST = os.getenv("ZADAI_HOST", "0.0.0.0")
 PORT = int(os.getenv("ZADAI_PORT", "8000"))
+TUNNEL = os.getenv("ZADAI_TUNNEL", "0").lower() in {"1", "true", "yes"}
